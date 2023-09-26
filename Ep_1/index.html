@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="styleSheet" href="./index.css" type="text/css" />
+    <title>Namste React</title>
+  </head>
+  <body>
+    <div id="root">
+      <h1>Hey Haritha! Welcome to Namaste React.js</h1>
+    </div>
+    <div id="header">
+      <h1>Hey Haritha! this is header id.</h1>
+    </div>
+    <h2>Outside the header tag</h2>
+    <!-- THough I'm rendering only the root element in the APP.js the data with id= header will also be rendered
+     -->
+    <!-- CDN links for inetgrating react -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="./App.js"></script>
+
+    <!-- Instead of writing the react code in the HTML file Just write the react code in sperate file and just inject it in the hTML file -->
+    <!--  
+    <script>
+      const heading = React.createElement(
+        "h1",
+        {},
+        "Welcome to Namaste React Series!"
+      );
+      const root = ReactDOM.s(document.getElementById("root"));
+      root.render(heading);
+      // First We created a an element h1 with some heading data;
+      //Inorder to display this heading on brwoser inside the div tag of id="root" we need to access the DOm by creating a root element and get the root element by ID;
+      // next we should render the h1 element in the root using root.render(elementName);
+    </script>
+-->
+    <!--Javascript code   -->
+    <!--  
+    <div id="App">
+      <h1>Namaste React</h1>
+    </div>
+    -->
+    <!--  
+    <script>
+      const element = document.createElement("h3");
+      element.innerHTML = "This is Javascript Code";
+      const mainElement = document.getElementById("App");
+      mainElement.appendChild(element);
+    </script>
+    --->
+  </body>
+</html>
