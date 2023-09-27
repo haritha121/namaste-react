@@ -1,0 +1,12 @@
+Assignemnt1:
+1)What is crossOrigin and why do we use it?
+CORS stands for Cross-Origin Resource Sharing, and is a mechanism that allows resources
+on a web page to be requested from another domain outside their own domain.
+It defines a way of how a browser and server can interact to determine whether it is safe to
+allow the cross-origin request.
+
+2)what is CDN?(COntent Delivery Network
+
+3)Will the order of the line in the file are important?
+Yes order of the lines in the are important. IN index.html if I reorder the script lines of the react cdn l;inks after the app.js scriptline then we will get an error when trying to display the react data in the ui.
+//Error: App.js:1 Uncaught ReferenceError: React is not defined. This occured because we rae trying to access the react inbuilt functions even before injecting the ReactCDN links in the code.
