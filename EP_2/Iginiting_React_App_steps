@@ -1,0 +1,20 @@
+Note: All the commands are enclosed inside the \* command \*
+
+Step 1)Install npm in the application using : \* npm init \*
+This command creates package.json file in the application.
+Next we need a package which helps us deploy the bundled, cached, compressed, production ready application -->we have Parcel, webpack, wheat etc.
+Step 2)I installed parcel --> \* npm i -d parcel \*
+(I used -d beacuse I want all the bundling, caching etc to happen in dev mode and the bundled version of the code will be deployed in the production.)
+
+Step3)Next I want to build the application so that I can access the application in the browser directly not by opening index.html file. --> \* npx parcel sourcefile \*
+
+Next we have CDN links to bring React and React-Dom into the project but its not a preffered way.
+Because if we inject the React and React-DOM using CDN every time it makes a network call to the unpkg.com
+
+step4)Install React and React-DOM into the project \* npm i react \* \* npm i react-dom \*
+
+After installing the react and react-dom packages remove the react CDN links in index.html and import the React and React-DOM from the nodemodules and use it in the required components.
+
+After removing the CDN links and try to run the code then we will get an error saying that Browser scripts cannot have imports or exports. This error is thrown beacuse we are using the APP.js in a script tag of index.html. Here APP.js is treated as a browser script (normal javascripts) . To fix this issue we need to add type="module" in that script Tag. Then the error will be fixed.
+
+We will get a warning import React-Dom from "react-dom/client" . it is because earlier we used import the react-Dom from "react-dom" but now in the new react we have to import the react-dom from "react-dom/client"

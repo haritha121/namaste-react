@@ -1,0 +1,36 @@
+{
+  "name": "basic_react_app",
+  "version": "1.0.0",
+  "description": "creating react-app from scratch instead of using npm create-react-app",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haritha121/namaste-react.git"
+  },
+  "keywords": [
+    "react",
+    "namaste",
+    "react",
+    "haritha",
+    "react-dom"
+  ],
+  "author": "haritha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haritha121/namaste-react/issues"
+  },
+  "homepage": "https://github.com/haritha121/namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browsersList": [
+    "Last 2 versions"
+  ]
+}

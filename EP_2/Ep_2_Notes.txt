@@ -1,0 +1,103 @@
+In this we are creating the react-app from scratch. 
+To add npm in our project I'm using npm init. It creates a package.json file which is npthing but a configuartion file for npm.
+npm will manage the packages or dependencies in the project.
+The most important package in the project is bundler.
+When we have normal html and css , js file the whole code needs to be compressed, minified, clean,cached before it is sent to production. Bundler does all this all for us.
+Webpack, parcel, wheat etc. all these are bundlers.
+Bundler properly bundles or packages our app so that it can be sent to prod.
+
+create-react-app uses webpack as a bundler.
+In this project lets explore parcel as a bundler.
+
+** In the app we can have two types of packages we can install.
+1)dev dependency :It is generally required in a development phase.
+2)normal dependency:will be used in production also.
+
+Now while installing parcel use npm i -D parcel. Here we are using -D as it is a dev dependecy and we will do minification, compression etc in the development and then deploy it in prod. thats the reason parcel package is installed as a dev-dependency.
+
+
+** Difference between ~ and ^:
+
+Tilde ~:
+
+When you specify a version with a tilde (~), npm allows patch-level updates. It means that only the last digit in the version can change.
+For example, if you specify "package-name": "~1.2.3", npm will allow updates to versions like 1.2.4, but not 1.3.0 or 2.0.0.
+Tilde is suitable when you want to ensure bug fixes and minor improvements but are not concerned about potentially breaking changes introduced in a new major version.
+Caret ^:
+
+When you specify a version with a caret (^), npm allows both minor and patch-level updates but restricts major version changes.
+For example, if you specify "package-name": "^1.2.3", npm will allow updates to versions like 1.3.0, 1.2.4, but not 2.0.0.
+Caret is useful when you want to ensure compatibility with new features and bug fixes but are cautious about major version changes that might introduce breaking changes.
+
+In summary:
+Use ~ for more conservative versioning when you only want to accept bug fixes and minor improvements.
+Use ^ for more flexible versioning when you are open to minor and patch-level updates but want to avoid major breaking changes.
+
+Whats package-lock.json? 
+It lock the version of dependencies installed and keeps a record of installed dependencies. It locks the same version when we install it. so it won't change.
+
+package.json will have the approx version of dependencies where as packagelock.json will have the exact version of dependencies.
+
+what is integrity in package-lock.json?
+In integrity we have (sha512). This is used to verify  the version which I'm using on my local is the same version that is being deployed in prod.
+
+what are node modules?
+They contain all the code that we fetch from npm. whenever we install some package it goes to production and fetch all the code and place it inside the nodemodules.
+
+
+What is transitive dependency?
+For instance I have installed Parcel. Now if I open and see the node modules there are lot of packages along with the parcel. Even though I just installed parcel.
+This parcel package may have its own dependencies and those dependencies can have their own dependencies. when I install parcel all these dependencies will get installed. 
+This is known as Transitive dependecy
+
+
+When you have a situation where multiple dependencies in your project use a common package but specify different versions of that package, npm employs a mechanism called "dependency resolution" to determine which version of the common package should be installed. The goal is to ensure that the installed packages meet the version requirements of all the dependencies while trying to use the highest compatible version.
+
+Here's how npm handles this scenario:
+1)Version Conflict Resolution: npm will try to find a version of the common package that satisfies the version requirements specified by all the dependencies. 
+This is often referred to as finding the "highest compatible version."
+
+2)Version Hierarchy: If a version of the common package is found that satisfies all the version constraints, 
+that version will be installed, and all dependencies will use it.
+
+3)Dependency Tree: npm constructs a dependency tree, which includes the entire hierarchy of dependencies 
+for your project. This tree allows npm to track and resolve conflicts.
+
+4)Dependency Locking: In modern versions of npm, a package-lock.json or yarn.lock file is generated to lock 
+down the specific versions of dependencies that were installed. This ensures that the same versions are used consistently across different environments and by different developers working on the project.
+
+5)Peer Dependencies: If there are any peer dependencies involved (dependencies that your project and its 
+dependencies depend on), npm will also ensure that the peer dependencies are compatible and resolve any 
+conflicts.
+
+In most cases, npm will successfully find a compatible version that satisfies all the dependencies' 
+version requirements. However, there can be situations where resolving conflicts becomes complex or leads to unexpected results, especially if there are incompatible version ranges specified. In such cases, it's a good practice to review your project's dependencies and their version constraints to make sure they are reasonable and compatible.
+
+You can use the npm ls or yarn list command to inspect your project's dependency tree and 
+see which versions of packages are actually installed. This can help you identify any potential version conflicts.
+
+
+What is the difference between npm and npx
+
+npm is used for installing a package.
+npx is used for executing a package.
+Eg: I install parcel using npm i parcel. I executed parcel using npx parcel index.html.
+When I tried executing the parcel it went inside the source file mentioned in the command and 
+built a devlopment build of the app and hosted that in the localhost:1234
+
+
+How to Create a prod build?
+npx parcel build index.html --> It throws an error becaue in our package.json file we have given the entry point as APP.js . But in parcel we need to use the Entry point in our package.json file since we mention the entry point in our command.
+For prod build we need to add build l=keyword in the command. for dev we will not mention build keyword in the command.
+ All the build will be present in the dist folder.
+When we change any code then parcel is using parcehe-cache and dist folders and refreshing the page(HMR- Hot Module Replacement)
+
+
+How to configure the supported browsers for our app?
+We need to add a configuration for the browsers list in our package.json. Brwosers list is a package where we could see all the supported browsers.
+Eg: Here if we need to add the last 2 versions of chrome needs to be supported then we have to add like this. "browsersList":[
+    "Last 2 Chrome version"
+  ]
+This doesn't mean it will not work on other browsers. It's just means that it will work 100% for the mentioned browsers and versions. 
+To know more on how to add the versions and the broswers in the configuration file Go to  https://browserslist.dev/
+GitHub link of browserslist: https://github.com/browserslist/browserslist -->Here we can see the complete details of how to add the regions for broserlists etc.

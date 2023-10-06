@@ -1,0 +1,83 @@
+Assignemnt1:
+1)What is crossOrigin and why do we use it?
+CORS stands for Cross-Origin Resource Sharing, and is a mechanism that allows resources
+on a web page to be requested from another domain outside their own domain.
+It defines a way of how a browser and server can interact to determine whether it is safe to
+allow the cross-origin request.
+
+2)what is CDN?(COntent Delivery Network
+
+3)Will the order of the line in the file are important?
+Yes order of the lines in the are important. IN index.html if I reorder the script lines of the react cdn l;inks after the app.js scriptline then we will get an error when trying to display the react data in the ui.
+//Error: App.js:1 Uncaught ReferenceError: React is not defined. This occured because we rae trying to access the react inbuilt functions even before injecting the ReactCDN links in the code.
+
+
+Difference between library and framework?
+Both frameworks and libraries are code written by someone else that is used to help solve common problems.
+The Technical Difference
+The technical difference between a framework and library lies in a term called inversion of control.
+
+When you use a library, you are in charge of the flow of the application. You are choosing when and where to call the library. When you use a framework, the framework is in charge of the flow. It provides some places for you to plug in your code, but it calls the code you plugged in as needed.
+Certainly! Let's illustrate the difference between a library and a framework using React (a library) and Angular (a framework) as examples:
+
+**React (Library):**
+
+React is like a toolbox with various tools for building user interfaces. When you use React, you decide when and where to use these tools. React primarily focuses on the "view" part of your application, providing components, a virtual DOM, and state management capabilities. Here's a simplified example using React:
+
+```jsx
+// Your React component
+import React, { useState } from 'react';
+
+function App() {
+  const [error, setError] = useState(false);
+  const errorMessage = 'An Error Occurred';
+
+  const handleClick = () => {
+    setError(true); // Simulate an error
+  };
+
+  return (
+    <div>
+      <button onClick={handleClick}>Submit</button>
+      {error && <p>{errorMessage}</p>}
+    </div>
+  );
+}
+
+export default App;
+```
+
+With React, you're in charge of when and where to use React components and features. It's like picking the specific tools you need from the React toolbox.
+
+**Angular (Framework):**
+
+Angular, on the other hand, is more like a construction site where a predefined structure and workflow are in place. Angular dictates how the application should be structured and manages the flow of your application. Here's a simplified example using Angular:
+
+```typescript
+// Your Angular component
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <div>
+      <button (click)="checkForErrors()">Submit</button>
+      <p *ngIf="error">{{ errorMessage }}</p>
+    </div>
+  `,
+})
+export class AppComponent {
+  error = false;
+  errorMessage = 'An Error Occurred';
+
+  checkForErrors() {
+    this.error = true; // Simulate an error
+  }
+}
+```
+
+With Angular, you follow the framework's structure and patterns. Angular controls the overall flow of your application, and you plug your code into the predefined slots. It's like working on a construction site where you follow the blueprint.
+
+In summary, React (a library) gives you more control over when and where to use its tools, while Angular (a framework) provides a structured environment where the framework controls the application flow, and you follow its guidelines and patterns.
+Let’s look at an example using jQuery (a library) and Vue.js (a framework).
+https://www.freecodecamp.org/news/the-difference-between-a-framework-and-a-library-bd133054023f/
