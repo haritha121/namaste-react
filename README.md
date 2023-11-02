@@ -23,3 +23,9 @@ In this repo I'll have all the basics, projects and advanced topics in react.js
 - HTTPS
 - Different dev and prod bundles
 - For knowing more about parcel go to https://parceljs.org/
+
+Important VS code extensions:
+Prettier
+Bracket Pair Colorization Toggler
+Better comments
+EsLint

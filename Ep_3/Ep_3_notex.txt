@@ -1,0 +1,101 @@
+Is JSX a part of React?
+NO. We can build the react applications without JSX. JSX and react are both completely different topics.
+
+JSX is not HTML inside the javascript but JSX is a HTML or XML like syntax.
+Javscript is a code that JS engine can understand.
+JSX is not a javascript code. It will not be understood by the browser's JS engine.
+JS engine understands the ECMA Script or ES6(pure javascript).
+
+If the JS engine doesn't understand the JSX code then how is our code is being executed and the expected output is being displayed in the UI?
+*** Parcel is doing this behind the scenes. Because of it we are able to see the JSX code in the UI.
+Even before the JSX code goes to JS engine it is transpiled to the code which JS engines can understands.
+Actually parcel doesn't directly transpiles the code for us. it's just like manager and has other packages to do the work for it. 
+So, here parcel has ** Babel ** to transpile the code for it.
+
+
+//React.createElement  => React Element(which is nothing but a jascript Object) =>HTMLElement(render).That javascript object is rendered as HTML element.
+const heading = React.createElement(
+  "h1",
+  { id: "heading" },
+  "Namaste React 🚀"
+);
+
+
+//This JSX is transpiled by the Babel as a React.create Element
+//JSX => Babel transpiles JSX to React.createElement  => React Element => HTMLElement(render)
+//JSX - HTML-like or XML- like syntax
+const jsxHeading = <h1 id="heading">Hey Haritha from JSX heading!🤘</h1>;
+
+
+babel can do many things:
+1)It is a JS compiler, 
+2)transpiler 
+3)if the older browsers doesn't understands the Latest ES6 code then babel transpiles it to the code that is understood by the old browsers.
+for more information on babel go to : https://babeljs.io/docs/
+
+To pass any attributes to jsx we will use the camel casing.
+
+if we are writing the multiple lines in the jSx code then it needs to be wrapped inside () . because babel needs to know where the jsx code is started and where it is ending.
+if it is a single line then it is not needed to wrap the code in ()
+
+In react we have two types of components:
+ 1) Class Based Components - Old way of writing code
+ 2)Functional Based Components - New Way of Writing code
+
+ React functional component is nothing but a javascript function. The only difference is for React functional component we 
+ the first letter should be the capital letter. So that react can understand it as a react functional component
+
+ Functional Components:  A function that returns JSX code is a functional component
+
+
+ //React Functional Component
+//Different ways of writing a functional Component
+const App1 = () => {
+  return <h1>Hey Haritha! Welcome from App1 🧚 🚀</h1>;
+};//here we are using return since we used curly braces and above return if we want to declare any variables we can do that.
+const App2 = () => (
+  <h1 className="app2">Hey Haritha! Welcome from App2 🧚 🚀</h1>
+);//here we are not using return since we have just one element and we are returning it directly and here we can't decalre any variables inside the paranthesis.
+const App3 = () => <h1>Hey Haritha! Welcome from App3 🧚 🚀</h1>;
+const App4 = () => {
+  return <h1>Hey Haritha! Welcome from App3 🧚 🚀</h1>;
+};
+//If you want to render this app component on to Dom then we should render it like this:
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App1 />);
+
+
+
+*****React Element ********
+const heading=(
+  <h1 className="heading">ReactElement</h1>
+)
+
+***React Component ********
+
+const Heading=()=>(
+   <h1 className="heading">ReactElement</h1>
+)
+
+//*******Note Carefully observe the difference between the react element and react component *********//
+
+
+******* what is component Composition?
+We are composing two components into one another
+const App4 = () => {
+  return (
+    <div id="container">
+    <App3/>
+    <h1>Hey Haritha! Welcome from App3 🧚 🚀</h1>;
+    </div>
+  )
+};
+In the above code we are importing and using the APp3 component inside the APP4. This is nothing but a component Composition
+
+
+//Cross site scripting attacks
+In general we will have the dynamic website not a static one. 
+For instance if are getting the data from an API and that API sends some malicious code as a response and we include that response in our component i.e. the attacker can run some piece of javascript code on our browser.
+Attacker can have the access to the local storage, session storage and can steal the cookies or any other information. 
+
+JSX will not blindly runs the data isntead it escapes this kinds of attack by sanitaizing the data. This is how the cross site scripting attacks.

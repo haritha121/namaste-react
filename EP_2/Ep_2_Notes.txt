@@ -101,3 +101,7 @@ Eg: Here if we need to add the last 2 versions of chrome needs to be supported t
 This doesn't mean it will not work on other browsers. It's just means that it will work 100% for the mentioned browsers and versions. 
 To know more on how to add the versions and the broswers in the configuration file Go to  https://browserslist.dev/
 GitHub link of browserslist: https://github.com/browserslist/browserslist -->Here we can see the complete details of how to add the regions for broserlists etc.
+
+
+Instead of typing npx parcel index.html to start a dev build everytime we can add the command on the script tags inside package.json. I have added dev-start for building the application in dev mode. you can name anything you want.
+In general we will label it as start but here I named it as dev-start. Now I can just use npm run dev-start or npm dev-start. four build we need to use run keyword in the command but for start (dev-build) we can skip using the run keyword.
